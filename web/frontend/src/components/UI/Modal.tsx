@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
 import classes from "./Modal.module.css";
-import { defaultInterface } from "../../interface/props";
+import { defaultInterface, modalInterface } from "../../interface/props";
 
-const BackDrop = () => {
-  return <div className={classes.backdrop} />;
+const BackDrop = (props: any) => {
+  return <div className={classes.backdrop} onClick= {props.onClose}/>;
 };
 
 const ModalOverLay = (props: defaultInterface) => {
@@ -17,10 +17,10 @@ const ModalOverLay = (props: defaultInterface) => {
 
 const portalElement = document.getElementById("overlays")!;
 
-const Modal = (props: defaultInterface) => {
+const Modal = (props: modalInterface) => {
   return (
     <Fragment>
-      {ReactDOM.createPortal(<BackDrop />, portalElement)}
+      {ReactDOM.createPortal(<BackDrop onClose ={props.onClose}/>, portalElement)}
       {ReactDOM.createPortal(
         <ModalOverLay>{props.children}</ModalOverLay>,
         portalElement
