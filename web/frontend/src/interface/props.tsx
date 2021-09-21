@@ -3,6 +3,10 @@ export interface defaultInterface {
     children?: React.ReactNode;
 }
 
+export interface modalInterface extends defaultInterface{
+    onClose: () => {}
+}
+
 export interface buttonProps {
     type : "button" | "submit" | "reset" | undefined 
     onClick?: () => void
