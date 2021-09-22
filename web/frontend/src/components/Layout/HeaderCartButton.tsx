@@ -3,8 +3,9 @@ import CartContext from "../../store/cart-context"
 import React from "react";
 import CartIcon from "../Cart/CartIcon"
 import classes from "./HeaderCartButton.module.css"
+import { headerProps } from "../../interface/props";
 
-const HeaderCartButton = (props: any) => {
+const HeaderCartButton = (props: headerProps) => {
   const [btnHighlightend, setBtnHighlightend] = useState<boolean>(false)
   const cartCtx = useContext(CartContext)
   const { items } = cartCtx
@@ -30,7 +31,7 @@ const HeaderCartButton = (props: any) => {
     }
   }, [items])
 
-  return <button className={btnClasses} onClick ={props.onClick}>
+  return <button className={btnClasses} onClick ={props.onShowCart}>
       <span>
         <CartIcon/>
       </span>

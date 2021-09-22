@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import classes from "./Modal.module.css";
 import { defaultInterface, modalInterface } from "../../interface/props";
 
-const BackDrop = (props: any) => {
+const BackDrop = (props: modalInterface) => {
   return <div className={classes.backdrop} onClick= {props.onClose}/>;
 };
 

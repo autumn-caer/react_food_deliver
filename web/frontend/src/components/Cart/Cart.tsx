@@ -3,27 +3,29 @@ import Modal from "../UI/Modal";
 import classes from "./Cart.module.css";
 import CartContext from "../../store/cart-context";
 import CartItem from "./CartItem";
+import { mealItemProps, cartProps } from "../../interface/props";
 
-const Cart = (props: any) => {
+
+const Cart = (props: cartProps) => {
   const cartContext = useContext(CartContext);
   const totalAmount = `$${cartContext.totalAmount.toFixed(2)}`;
   const hasItems = cartContext.items.length > 0;
 
-  const cartItemsRemoveHandler = (id: any) => {
-    cartContext.removeItem(id)
+  const cartItemsRemoveHandler = (item: mealItemProps) => {
+    cartContext.removeItem(item)
   };
 
-  const cartItemAddHanlder = (item: any) => {
+  const cartItemAddHanlder = (item: mealItemProps) => {
     cartContext.addItem({...item, amount: 1})
   };
 
   const cartItems = (
     <ul className={classes["cart-items"]}>
-      {cartContext.items.map((item: any) => (
+      {cartContext.items.map((item: mealItemProps) => (
         <CartItem
           key={item.id}
           name={item.name}
-          amount={item.amount}
+          amount={item.amount!}
           price={item.price}
           onRemove = { cartItemsRemoveHandler.bind(null, item) }
           onAdd = { cartItemAddHanlder.bind(null, item) }
