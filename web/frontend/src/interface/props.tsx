@@ -20,6 +20,18 @@ export interface cardProps extends defaultInterface{
 export interface mealItemProps {
     id: string,
     name: string,
-    description: string,
-    price: number
+    description?: string,
+    price: number,
+    amount?: number
+}
+
+export interface actionProps  {
+    type: string,
+    id?: string,
+    item: mealItemProps
+}
+
+export interface stateProps {
+    items: Array<mealItemProps>,
+    totalAmount: number
 }
