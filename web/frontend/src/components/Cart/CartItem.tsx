@@ -1,7 +1,9 @@
 import React from "react";
 import classes from './CartItem.module.css';
+import { carItemProps } from "../../interface/props";
 
-const CartItem = (props: any) => {
+
+const CartItem = (props: carItemProps) => {
   const price = `$${props.price.toFixed(2)}`;
 
   return (
