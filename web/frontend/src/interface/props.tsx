@@ -4,8 +4,8 @@ export interface defaultInterface {
     children?: React.ReactNode;
 }
 
-export interface modalInterface extends defaultInterface, cartProps{
-    
+export interface modalInterface extends defaultInterface{
+    onClose: () => void
 }
 
 export interface buttonProps {
